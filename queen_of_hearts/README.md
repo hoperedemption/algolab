@@ -71,3 +71,14 @@ Let:
 Overall per test case:
 
 - `O(N + M_b) + O(V'^3)`
+
+## Points
+
+```text
+Testing solution >>>>
+   Test set 1 (25 pts / 3 s) : Correct answer      (0.003s)
+   Test set 2 (25 pts / 3 s) : Correct answer      (0.622s)
+   Test set 3 (30 pts / 3 s) : Correct answer      (0.656s)
+   Test set 4 (20 pts / 3 s) : Correct answer      (0.632s)
+
+Total score: 100
