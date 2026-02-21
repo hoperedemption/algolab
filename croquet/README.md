@@ -1,4 +1,4 @@
-# Croquet
+# Croquet - K Hop Geometry
 
 ## Algorithm tags
 **Delaunay · BFS · Nearest-Neighbor**
