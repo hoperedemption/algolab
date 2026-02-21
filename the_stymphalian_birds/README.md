@@ -1,4 +1,4 @@
-### Algorithm tag (Codeforces-style)
+### Algorithm tag
 
 **Greedy, Tree, Scheduling, Sorting** 
 
@@ -6,10 +6,10 @@
 
 ### The problem in a nutshell
 
-Let `n = 2^i - 1` and consider the complete binary tree on vertices `{0, ..., n-1}` with children `ch(u) = {2u+1, 2u+2}` when in range. Each vertex `u` has a deadline `t_u ∈ Z_{>= 1}`. We must choose a permutation `pi` of all vertices such that:
+Let `n = 2^i - 1` and consider the complete binary tree on vertices `{0, ..., n-1}` with children `ch(u) = {2u+1, 2u+2}` when in range. Each vertex `u` has a deadline `t_u ∈ Z_{>= 1}`. We must choose a permutation (an orderning in simple terms) `pi` of all vertices such that:
 
 1. (**Precedence**) if `v ∈ ch(u)` then `v` appears before `u` in `pi` (children before parent).
-2. (**Deadlines**) the vertex killed at time `tau ∈ {0, ..., n-1}` must satisfy `tau < t_{pi(tau)}`.
+2. (**Deadlines**) the vertex killed at time `t ∈ {0, ..., n-1}` must satisfy `t < time{pi(t)}`.
 
 Decide if such a permutation exists. 
 
@@ -21,7 +21,7 @@ First, enforce the precedence constraint by tightening deadlines: since a parent
 
 `t_v <- min(t_v, t_parent(v))`
 
-making each node’s effective deadline the minimum along its root-to-node path. After this, the precedence constraint is “baked into” the deadlines. Then it becomes a pure feasibility check for unit-time tasks: sort all nodes by increasing effective deadline and verify that at sorted position `tau`, the `tau`-th task still satisfies `t > tau`. If any task has deadline `<= tau`, no schedule can meet all deadlines; otherwise a schedule exists.
+making each node’s effective deadline the minimum along its root-to-node path. After this, the precedence constraint is “baked into” the deadlines. Then it becomes a pure feasibility check for unit-time tasks: sort all nodes by increasing effective deadline first and  decreasing index second (ensures children are taken care of before the parents) and verify that at sorted position `tau`, the `tau`-th task still satisfies `t > tau`. If any task has deadline `<= tau`, no schedule can meet all deadlines; otherwise a schedule exists.
 
 ---
 
@@ -31,7 +31,7 @@ making each node’s effective deadline the minimum along its root-to-node path.
 * Sorting `n` nodes by deadline: **O(n log n)**.
 * Single pass feasibility check: **O(n)**.
 
-**Total:** `O(n log n)` time per test case, **O(n)** memory.
+**Total:** **O(n log n)** time per test case, **O(n)** memory.
 
 ## Points
 
