@@ -1,4 +1,4 @@
-# Surveillance Photograph
+# Surveillance Photograph - Max Flow on Layered Graph
 
 ## Algorithm tags
 **Max Flow · Graph Layering · Push–Relabel**

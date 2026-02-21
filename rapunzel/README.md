@@ -1,4 +1,4 @@
-# Rapunzel
+# Rapunzel - Sliding Window on a Directed Rooted Tree
 
 ## Algorithm tags
 **Backtracking · DFS · Sliding Window · Multiset**
