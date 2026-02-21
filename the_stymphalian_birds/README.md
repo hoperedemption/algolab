@@ -21,7 +21,7 @@ First, enforce the precedence constraint by tightening deadlines: since a parent
 
 `t_v <- min(t_v, t_parent(v))`
 
-making each node’s effective deadline the minimum along its root-to-node path. After this, the precedence constraint is “baked into” the deadlines. Then it becomes a pure feasibility check for unit-time tasks: sort all nodes by increasing effective deadline and verify that at sorted position `tau`, the `tau`-th task still satisfies `t > tau`. If any task has deadline `<= tau`, no schedule can meet all deadlines; otherwise a schedule exists.
+making each node’s effective deadline the minimum along its root-to-node path. After this, the precedence constraint is “baked into” the deadlines. Then it becomes a pure feasibility check for unit-time tasks: sort all nodes by increasing effective deadline first and  decreasing index second (ensures children are taken care of before the parents) and verify that at sorted position `tau`, the `tau`-th task still satisfies `t > tau`. If any task has deadline `<= tau`, no schedule can meet all deadlines; otherwise a schedule exists.
 
 ---
 
