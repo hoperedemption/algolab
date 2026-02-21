@@ -51,3 +51,14 @@ Let `m = |E|`, `n <= 32`, `m <= 64`.
 
 So total time is `O(log n * (n + m))`
 **Space:** `O(n + m)` to store constraints and edge lists.
+
+## Points
+
+```text
+Testing solution >>>>
+   Test set 1 (30 pts / 2 s) : Correct answer      (0.493s)
+   Test set 2 (30 pts / 2 s) : Correct answer      (0.477s)
+   Test set 3 (20 pts / 2 s) : Correct answer      (0.414s)
+   Test set 4 (20 pts / 1 s) : Correct answer      (0.723s)
+
+Total score: 100
