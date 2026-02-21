@@ -1,7 +1,7 @@
 # Rapunzel
 
 ## Algorithm tags
-**Tree · DFS · Sliding Window · Multiset**
+**Backtracking · DFS · Sliding Window · Multiset**
 
 ---
 
