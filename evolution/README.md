@@ -1,6 +1,6 @@
 # Evolution - Offline ancestor query processing on a rooted tree
 
-### Algorithm tag (Codeforces-style)
+### Algorithm tag
 
 **DFS, Binary Search, Offline Queries, Backtracking** 
 
