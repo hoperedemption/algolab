@@ -1,93 +1,78 @@
-# Rapunzel — Sliding Window on a Tree
+# Ranunzel
 
 ## Algorithm tags
-
-**Backtracking, DFS, sliding window on a tree, BST / multiset**
+**Tree · DFS · Sliding Window · Multiset**
 
 ---
 
 ## Problem in a nutshell
 
-We are given a directed graph on vertices $V=\{0,\dots,n-1\}$ with brightness values
-$h:V\to\mathbb{Z}_{\ge 0}$. It satisfies:
+We are given a **rooted directed tree** `T = (V, E)` with root `0`.  
+For every node `u ∈ V`, there is exactly one directed path from `0` to `u`.
 
-- For every vertex $u$, there is **exactly one** directed path starting at $0$ and ending at $u$.
+Each vertex `i` has a **brightness** value `h[i] ≥ 0`.
 
-This makes the graph effectively a **rooted directed tree** oriented outward from the root $0$.
+Given integers:
 
-For each vertex $s$, let
+- `m ≥ 2` (required rope length in vertices)
+- `k ≥ 0` (maximum allowed contrast)
 
-$$
-P_s = (s = v_0 \to v_1 \to \cdots \to v_{m-1})
-$$
+Find all vertices `s ∈ V` such that there exists a directed path (a “rope”)
 
-be the unique directed path of **length $m$** starting at $s$ (if such a path exists). Define the **contrast** of a length-m rope as:
+- `s = v0 → v1 → … → v(m-1)`
 
-$$
-\mathrm{contrast}(P_s)
-= \max_{0 \le i \lt m} h(v_i) - \min_{0 \le i \lt m} h(v_i).
-$$
+containing **exactly `m` vertices**, where the **contrast** along that rope is:
 
-**Goal.** Output all vertices $s$ such that a length-m path starting at $s$ exists and
+- `max(h[vj]) - min(h[vj]) ≤ k` for `j = 0..m-1`
 
-$$
-\mathrm{contrast}(P_s) \le k.
-$$
-
-If none exist, print **`Abort mission`**.
+Output all such starting vertices `s` in increasing order, or print **"Abort mission"** if none exist.
 
 ---
 
-## Key observation
+## My Solution Idea
 
-Because there is **exactly one** path from $0$ to any node, a DFS from $0$ always maintains a single current root-to-current-node path:
+Run a DFS from the root while maintaining the current **root-to-current-node path**.
 
-$$
-\text{path} = (0 \to \cdots \to u).
-$$
+Along that path, maintain a **sliding window of the last `m` vertices** (once the path is at least `m` long).  
+For this window, we need to quickly know:
 
-Every possible rope of length $m$ is just a **contiguous sequence of $m$ consecutive vertices** somewhere inside that current DFS path.
+- the minimum brightness in the window
+- the maximum brightness in the window
 
-So the entire problem becomes:
+To do that efficiently, keep a **multiset (balanced BST)** of the `h[]` values currently in the window.
 
-> While walking down the tree, keep a **sliding window** of the last $m$ vertices on the current DFS path, and quickly test whether  
-> $$
-> \max(\text{window}) - \min(\text{window}) \le k.
-> $$
-> If yes, mark the **start vertex** of that window as a valid answer.
+### What happens during DFS?
 
----
+We enter a node `u`:
 
-## Proposed Algorithm
+1. Append `u` to the current path.
+2. Insert `h[u]` into the multiset (conceptually, into the window we carry around).
+3. If the path length is now greater than `m`, remove the brightness of the element that fell out of the window (the node `m` steps behind the end).
+4. If the window size is exactly `m`:
+   - Let `minVal = smallest element in multiset`
+   - Let `maxVal = largest element in multiset`
+   - If `maxVal - minVal <= k`, then the **start of the window** is a valid starting vertex:
+     - that start node is the ancestor `m-1` steps above `u` on the current path
 
-Maintain during DFS:
+When we leave a node `u` (backtracking):
 
-- `path`: the current vertices on the DFS stack (root-to-current).
-- `wdw`: a multiset / balanced BST containing brightness values of the **last $m$** vertices of `path`
-  (or fewer if depth $< m$).
+- Undo exactly what we changed when we entered:
+  - remove `h[u]` from the multiset/window
+  - if we previously removed an old element because the path exceeded `m`, we MUST re-insert it
+  - pop `u` from the path
 
-At node $u$:
-
-1. Push $u$ into `path` and insert $h[u]$ into `wdw`.
-2. If `wdw.size() > m`, remove the brightness of the vertex that just fell out of the last-$m$ suffix:
-   - That vertex is `path[path.size() - 1 - m]`.
-3. If `wdw.size() == m`, compute:
-   - $\min = *\text{wdw.begin()}$
-   - $\max = *\text{wdw.rbegin()}$
-   - If $\max-\min \le k$, then the **start of the window** is `path[path.size() - m]`. Mark it as part of the answer.
-4. Recurse and repeat in the children nodes.
-5. Backtrack: undo the insertions/deletions so the parent call sees the correct window again.
+This ensures the things we carry around: path/window/multiset always reflect the current DFS state.
 
 ---
 
 ## Complexity
 
-Let $n$ be the number of nodes.
+Let `n = |V|`.
 
-- Each node causes $O(1)$ multiset inserts/erases.
-- Each multiset operation costs $O(\log m)$ (the window never exceeds $m$).
+- Each node is inserted into / removed from the multiset at most twice.
+- Each multiset operation costs `O(log m)` because the window never exceeds size `m`.
 
-So per test case:
+So:
 
-- **Time:** $O(n\log m)$
-- **Extra memory:** $O(n + m)$ for the window/path suffix plus adjacency storage
+- **Time:** `O(n log m)` per test case  
+- **Space:** `O(n + m)` for the tree + DFS path + window multiset + recursion stack  
