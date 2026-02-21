@@ -16,7 +16,7 @@ There are:
 - directed capacity edges from cities of `G` to islands and from cities of `H` to islands,
 - supplies `s_G` at `g0` and `s_H` at `h0`.
 
-A unit of production corresponds to sending **one unit of flow** from a super-source through `G` to some island `i`, then through `H` (in the appropriate direction) to a super-sink, while respecting all capacities, and each island can be used by at most one unit.
+A unit of production flow corresponds to a cobination **one unit of flow** received from `G` and **one unit of flow** received from `H` , all while respecting all capacities, and the fact that each island can produce one unit of flow at most.
 
 Compute:
 
