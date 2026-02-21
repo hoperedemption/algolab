@@ -75,4 +75,15 @@ Let `n = |V|`.
 So:
 
 - **Time:** `O(n log m)` per test case  
-- **Space:** `O(n + m)` for the tree + DFS path + window multiset + recursion stack  
+- **Space:** `O(n + m)` for the tree + DFS path + window multiset + recursion stack
+
+## Points
+
+```text
+Testing solution >>>>
+   Test set 1 (20 pts / 4 s) : Correct answer      (0.013s)
+   Test set 2 (20 pts / 4 s) : Correct answer      (1.605s)
+   Test set 3 (20 pts / 4 s) : Correct answer      (0.004s)
+   Test set 4 (40 pts / 4 s) : Correct answer      (2.224s)
+
+Total score: 100
