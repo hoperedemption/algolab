@@ -105,3 +105,14 @@ Costs:
 
 **Total time:** `O((n + m) log n)` per test instance  
 **Space:** `O(n)`
+
+## Points
+
+```text
+Testing solution >>>>
+   Test set 1 (30 pts / 2 s) : Correct answer      (0.855s)
+   Test set 2 (30 pts / 2 s) : Correct answer      (0.544s)
+   Test set 3 (25 pts / 2 s) : Correct answer      (0.314s)
+   Test set 4 (15 pts / 2 s) : Correct answer      (0.658s)
+
+Total score: 100
