@@ -1,4 +1,4 @@
-### Algorithm tag (Codeforces-style)
+### Algorithm tag
 
 **Greedy, Tree, Scheduling, Sorting** 
 
@@ -31,7 +31,7 @@ making each node’s effective deadline the minimum along its root-to-node path.
 * Sorting `n` nodes by deadline: **O(n log n)**.
 * Single pass feasibility check: **O(n)**.
 
-**Total:** `O(n log n)` time per test case, **O(n)** memory.
+**Total:** **O(n log n)** time per test case, **O(n)** memory.
 
 ## Points
 
