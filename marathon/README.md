@@ -1,4 +1,4 @@
-# Marathon
+# Marathon - Max Flow on Shortest-Path DAG
 
 ## Algorithm tag
 **Dijkstra + MaxFlow + Shortest-Path DAG**
