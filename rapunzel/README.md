@@ -1,4 +1,4 @@
-# Ranunzel
+# Rapunzel
 
 ## Algorithm tags
 **Tree · DFS · Sliding Window · Multiset**
