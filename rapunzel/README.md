@@ -2,18 +2,18 @@
 
 ## Algorithm tags
 
-**Backtracking, Directed tree, DFS, sliding window on a root-to-node path, balanced BST / multiset (maintain min & max efficiently).**
+**Rooted arborescence (directed tree), DFS, sliding window on a root-to-node path, balanced BST / multiset (maintain min & max).**
 
 ---
 
 ## Problem (clean math statement)
 
-We are given a directed graph on vertices $V=\{0,\dots,n-1\}$ with brightness values
-$h:V\to\mathbb{Z}_{\ge 0}$. It satisfies that:
+You are given a directed graph on vertices $V=\{0,\dots,n-1\}$ with brightness values
+$h:V\to\mathbb{Z}_{\ge 0}$. It satisfies:
 
 - For every vertex $u$, there is **exactly one** directed path starting at $0$ and ending at $u$.
 
-So the graph is effectively a **rooted directed tree** oriented outward from the root $0$.
+So the graph is effectively a **rooted directed tree (arborescence)** oriented outward from the root $0$.
 
 For each vertex $s$, let
 
@@ -24,13 +24,13 @@ $$
 be the unique directed path of **length $m$** starting at $s$ (if it exists). Define the **contrast** of a length-$m$ rope as:
 
 $$
-\operatorname{contrast}(P_s) \;=\; \max_{0\le i<m} h(v_i) \;-\; \min_{0\le i<m} h(v_i).
+\mathrm{contrast}(P_s) \;=\; \max_{0\le i<m} h(v_i) \;-\; \min_{0\le i<m} h(v_i).
 $$
 
 **Goal.** Output all vertices $s$ such that a length-$m$ path starting at $s$ exists and
 
 $$
-\operatorname{contrast}(P_s)\le k.
+\mathrm{contrast}(P_s)\le k.
 $$
 
 If none exist, print **`Abort mission`**.
@@ -39,13 +39,13 @@ If none exist, print **`Abort mission`**.
 
 ## Key observation
 
-Because there is **exactly one** path from $0$ to any other node, a DFS from $0$ always maintains a single current root-to-current-node path:
+Because there is **exactly one** path from $0$ to any node, a DFS from $0$ always maintains a single current root-to-current-node path:
 
 $$
 \text{path} = (0 \to \cdots \to u).
 $$
 
-Every possible rope of length $m$ is just a **contiguous sequence of $m$ consecutive vertices** somewhere inside that current DFS path.
+Every possible rope of length $m$ is just a **contiguous block of $m$ consecutive vertices** somewhere inside that current DFS path.
 
 So the entire problem becomes:
 
@@ -53,13 +53,13 @@ So the entire problem becomes:
 > $$
 > \max(\text{window}) - \min(\text{window}) \le k.
 > $$
-> If yes, mark the **start vertex** of that window as a being part of the final answer.
+> If yes, mark the **start vertex** of that window as a valid answer.
 
 ---
 
-## Proposed Algorithm
+## Algorithm (what the code is doing)
 
-Natural approach is to maintain during DFS:
+Maintain during DFS:
 
 - `path`: the current vertices on the DFS stack (root-to-current).
 - `wdw`: a multiset / balanced BST containing brightness values of the **last $m$** vertices of `path`
@@ -81,7 +81,7 @@ This is exactly the **sliding window over a DFS path** idea.
 
 ---
 
-## Why it’s correct
+## Why it’s correct (short but solid)
 
 ### Invariant
 
@@ -121,5 +121,5 @@ Let $n$ be the number of nodes.
 
 So per test case:
 
-- **Time:** $\boxed{O(n\log m)}$
-- **Extra memory:** $\boxed{O(m)}$ for the window/path suffix (plus adjacency storage)
+- **Time:** $O(n\log m)$
+- **Extra memory:** $O(m)$ for the window/path suffix (plus adjacency storage)
