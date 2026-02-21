@@ -1,13 +1,13 @@
 # Croquet
 
-## Algorithm tags (Codeforces-style)
+## Algorithm tags
 **Delaunay · BFS · Nearest-Neighbor**
 
 ---
 
 ## Problem in a nutshell
 
-You are given:
+We are given:
 
 - `n` **safe points** `P = {p0, p1, ..., p(n-1)}` in 2D
 - the **target** is `t = p(n-1)` (the last safe point)
@@ -95,7 +95,7 @@ Let:
 
 Costs:
 
-- Build `DT_all`: `O(n log n)`
+- Build `DT_unvisited`: `O(n log n)`
 - BFS discovery:
   - each safe point is removed/discovered once
   - each extract/remove costs `O(log n)` amortized  
