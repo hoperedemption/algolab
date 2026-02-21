@@ -1,4 +1,4 @@
-# ETH Zurich: Algorithms Lab (AS 2025)
+# Algorithms Lab (AS 2025)
 
 This repository contains my personal C++ solutions and notes for the **Algorithms Lab (AS 2025)** course at ETH Zurich. 
 
