@@ -8,7 +8,7 @@
 
 ### The problem in a nutshell
 
-Let `V = {1, ..., n}` be nodes with `1` (sink) and `2` (source). You are given directed edges `E` where each edge `(i, j)` has:
+Let `V = {1, ..., n}` be nodes with `1` (sink) and `2` (source). We are given directed edges `E` where each edge `(i, j)` has:
 
 * suspicion coefficient `d_ij >= 0`,
 * efficiency `e_ij in (0, 1]` (so sending `x` units results in `e_ij * x` units arriving).
@@ -19,7 +19,7 @@ Let decision variables `x_ij >= 0` denote amount sent on edge `(i, j)`. Define n
 
 (i.e., inflow-after-loss minus outflow).
 
-Given `a, b, c`, ask whether there exists a feasible circulation-with-supply such that:
+Given `a, b, c`, we ask whether there exists a feasible circulation-with-supply such that:
 
 * total suspicion budget: `sum_{(i, j) in E} (d_ij * x_ij) <= c`,
 * source can inject at most `a`: `sum_{(2, j) in E} x_2j <= a`,
