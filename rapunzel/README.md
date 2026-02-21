@@ -1,19 +1,19 @@
-# Rapunzel — Sliding Window on a Root-to-Node DFS Path
+# Rapunzel — Sliding Window on a Tree
 
 ## Algorithm tags
 
-**Rooted arborescence (directed tree), DFS, sliding window on a root-to-node path, balanced BST / multiset (maintain min & max).**
+**Backtracking, DFS, sliding window on a tree, BST / multiset**
 
 ---
 
 ## Problem (clean math statement)
 
-You are given a directed graph on vertices $V=\{0,\dots,n-1\}$ with brightness values
+We are given a directed graph on vertices $V=\{0,\dots,n-1\}$ with brightness values
 $h:V\to\mathbb{Z}_{\ge 0}$. It satisfies:
 
 - For every vertex $u$, there is **exactly one** directed path starting at $0$ and ending at $u$.
 
-So the graph is effectively a **rooted directed tree (arborescence)** oriented outward from the root $0$.
+This makes the graph effectively a **rooted directed tree** oriented outward from the root $0$.
 
 For each vertex $s$, let
 
@@ -21,7 +21,7 @@ $$
 P_s = (s = v_0 \to v_1 \to \cdots \to v_{m-1})
 $$
 
-be the unique directed path of **length $m$** starting at $s$ (if it exists). Define the **contrast** of a length-$m$ rope as:
+be the unique directed path of **length $m$** starting at $s$ (if such a path exists). Define the **contrast** of a length-$m$ rope as:
 
 $$
 \mathrm{contrast}(P_s)
@@ -46,7 +46,7 @@ $$
 \text{path} = (0 \to \cdots \to u).
 $$
 
-Every possible rope of length $m$ is just a **contiguous block of $m$ consecutive vertices** somewhere inside that current DFS path.
+Every possible rope of length $m$ is just a **contiguous sequence of $m$ consecutive vertices** somewhere inside that current DFS path.
 
 So the entire problem becomes:
 
@@ -58,7 +58,7 @@ So the entire problem becomes:
 
 ---
 
-## Algorithm (what the code is doing)
+## Proposed Algorithm
 
 Maintain during DFS:
 
@@ -74,42 +74,9 @@ At node $u$:
 3. If `wdw.size() == m`, compute:
    - $\min = *\text{wdw.begin()}$
    - $\max = *\text{wdw.rbegin()}$
-   - If $\max-\min \le k$, then the **start of the window** is `path[path.size() - m]`. Mark it.
-4. Recurse to children.
-5. Backtrack: undo the insertions/deletions so the parent call sees the correct window.
-
-This is exactly the **sliding window over a DFS path** idea.
-
----
-
-## Why it’s correct (short but solid)
-
-### Invariant
-
-At every DFS call at node $u$:
-
-1. `path` equals the unique directed path $(0 \to \cdots \to u)$.
-2. `wdw` contains exactly the multiset of brightness values of the last $\min(m, |path|)$ vertices of `path`.
-
-This holds because:
-
-- You insert $h[u]$ on entry.
-- If the size exceeds $m$, you delete exactly the element corresponding to the vertex now $m+1$ steps behind the end.
-- On return, you undo exactly those changes.
-
-### Correct marking
-
-When `wdw.size() == m`, it corresponds to the unique length-$m$ rope ending at the current node $u$, i.e. the suffix:
-
-$$
-(v_{|path|-m} \to \cdots \to v_{|path|-1}=u).
-$$
-
-Its start is `path[path.size() - m]`. If its contrast is $\le k$, you mark precisely that start vertex—exactly what the problem asks for.
-
-### Completeness
-
-Every length-$m$ directed rope appears as the last $m$ vertices of `path` at the moment DFS visits its endpoint, so it will be checked.
+   - If $\max-\min \le k$, then the **start of the window** is `path[path.size() - m]`. Mark it as part of the answer.
+4. Recurse and repeat in the children nodes.
+5. Backtrack: undo the insertions/deletions so the parent call sees the correct window again.
 
 ---
 
@@ -123,4 +90,4 @@ Let $n$ be the number of nodes.
 So per test case:
 
 - **Time:** $O(n\log m)$
-- **Extra memory:** $O(m)$ for the window/path suffix (plus adjacency storage)
+- **Extra memory:** $O(n + m)$ for the window/path suffix plus adjacency storage
