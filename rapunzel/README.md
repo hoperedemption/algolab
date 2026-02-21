@@ -24,13 +24,14 @@ $$
 be the unique directed path of **length $m$** starting at $s$ (if it exists). Define the **contrast** of a length-$m$ rope as:
 
 $$
-\mathrm{contrast}(P_s) \;=\; \max_{0\le i<m} h(v_i) \;-\; \min_{0\le i<m} h(v_i).
+\mathrm{contrast}(P_s)
+= \max_{0 \le i \lt m} h(v_i) - \min_{0 \le i \lt m} h(v_i).
 $$
 
 **Goal.** Output all vertices $s$ such that a length-$m$ path starting at $s$ exists and
 
 $$
-\mathrm{contrast}(P_s)\le k.
+\mathrm{contrast}(P_s) \le k.
 $$
 
 If none exist, print **`Abort mission`**.
