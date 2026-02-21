@@ -95,7 +95,7 @@ Let:
 
 Costs:
 
-- Build `DT_all`: `O(n log n)`
+- Build `DT_unvisited`: `O(n log n)`
 - BFS discovery:
   - each safe point is removed/discovered once
   - each extract/remove costs `O(log n)` amortized  
