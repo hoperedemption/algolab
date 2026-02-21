@@ -7,7 +7,7 @@
 
 ## Problem in a nutshell
 
-You are given:
+We are given:
 
 - `n` **safe points** `P = {p0, p1, ..., p(n-1)}` in 2D
 - the **target** is `t = p(n-1)` (the last safe point)
