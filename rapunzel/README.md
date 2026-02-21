@@ -6,7 +6,7 @@
 
 ---
 
-## Problem (clean math statement)
+## Problem in a nutshell
 
 We are given a directed graph on vertices $V=\{0,\dots,n-1\}$ with brightness values
 $h:V\to\mathbb{Z}_{\ge 0}$. It satisfies:
