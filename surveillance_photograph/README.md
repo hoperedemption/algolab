@@ -108,3 +108,12 @@ Complexities:
 - **Time (worst-case):** `O(N^3)` for push–relabel  
   ⇒ `O((2n)^3) = O(n^3)` in theory  
 - **Space:** `O(N + M) = O(n + m)` to store the graph
+
+  ## Points
+
+```text
+Testing solution >>>>
+   Test set 1 (50 pts / 1.500 s) : Correct answer      (0.155s)
+   Test set 2 (50 pts / 1.500 s) : Correct answer      (0.248s)
+
+Total score: 100
