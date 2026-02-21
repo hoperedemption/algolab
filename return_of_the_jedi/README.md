@@ -1,6 +1,6 @@
 # Return of the Jedi - Second-Best Minimum Spanning Tree (via edge exchange on an MST / Prim tree)
 
-### Algorithm tag (Codeforces-style)
+### Algorithm tag 
 
 **MST, Prim, Second-Best MST, Tree BFS** 
 
