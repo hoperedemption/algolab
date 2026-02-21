@@ -20,7 +20,7 @@ A unit of production flow corresponds to a cobination **one unit of flow** recei
 
 Compute:
 
-1. `y`: the maximum number of units that can be sent, and
+1. `y`: the maximum number of units that can be produced, and
 2. `s`: among all flows achieving `y`, the maximum total profit `sum(a_i)` of used islands.
 
 ---
