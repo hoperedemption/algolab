@@ -21,14 +21,14 @@ $$
 P_s = (s = v_0 \to v_1 \to \cdots \to v_{m-1})
 $$
 
-be the unique directed path of **length $m$** starting at $s$ (if such a path exists). Define the **contrast** of a length-$m$ rope as:
+be the unique directed path of **length $m$** starting at $s$ (if such a path exists). Define the **contrast** of a length-m rope as:
 
 $$
 \mathrm{contrast}(P_s)
 = \max_{0 \le i \lt m} h(v_i) - \min_{0 \le i \lt m} h(v_i).
 $$
 
-**Goal.** Output all vertices $s$ such that a length-$m$ path starting at $s$ exists and
+**Goal.** Output all vertices $s$ such that a length-m path starting at $s$ exists and
 
 $$
 \mathrm{contrast}(P_s) \le k.
