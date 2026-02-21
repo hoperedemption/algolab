@@ -1,4 +1,4 @@
-# Rumpelstitskin
+# Rumpelstitskin - Intersection of Two Disjoint Flow Networks
 
 ## Algorithm tag
 **Min-Cost Max-Flow · Successive SP · Intersection of Flow Networks**
