@@ -65,7 +65,7 @@ Using **successive shortest path with nonnegative costs**:
 - **Time:** `O(F * (E log V))` with Dijkstra-based successive shortest paths algorithm 
 - **Space:** `O(V + E)`.
 
-  ## Points
+## Points
 
 ```text
 Testing solution >>>>
