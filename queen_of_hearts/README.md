@@ -1,4 +1,4 @@
-# Queen of Hearts
+# Queen of Hearts - BFS on subgraphs and Min Cut on Graph
 
 ## Algorithm tag
 
