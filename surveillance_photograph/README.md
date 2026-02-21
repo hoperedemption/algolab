@@ -109,7 +109,7 @@ Complexities:
   ⇒ `O((2n)^3) = O(n^3)` in theory  
 - **Space:** `O(N + M) = O(n + m)` to store the graph
 
-  ## Points
+## Points
 
 ```text
 Testing solution >>>>
