@@ -16,11 +16,11 @@ There are:
 - directed capacity edges from cities of `G` to islands and from cities of `H` to islands,
 - supplies `s_G` at `g0` and `s_H` at `h0`.
 
-A unit of production corresponds to sending **one unit of flow** from a super-source through `G` to some island `i`, then through `H` (in the appropriate direction) to a super-sink, while respecting all capacities, and each island can be used by at most one unit.
+A unit of production flow corresponds to a cobination **one unit of flow** received from `G` and **one unit of flow** received from `H` , all while respecting all capacities, and the fact that each island can produce one unit of flow at most.
 
 Compute:
 
-1. `y`: the maximum number of units that can be sent, and
+1. `y`: the maximum number of units that can be produced, and
 2. `s`: among all flows achieving `y`, the maximum total profit `sum(a_i)` of used islands.
 
 ---
@@ -64,3 +64,18 @@ Using **successive shortest path with nonnegative costs**:
 
 - **Time:** `O(F * (E log V))` with Dijkstra-based successive shortest paths algorithm 
 - **Space:** `O(V + E)`.
+
+## Points
+
+```text
+Testing solution >>>>
+   Test set 1        (20 pts / 1 s) : Correct answer      (0.137s)
+   Test set 2        (20 pts / 1 s) : Correct answer      (0.013s)
+   Test set 3        (20 pts / 1 s) : Correct answer      (0.189s)
+   Test set 4        (20 pts / 1 s) : Correct answer      (0.163s)
+   Hidden test set 1 (05 pts / 1 s) : Correct answer      (0.136s)
+   Hidden test set 2 (05 pts / 1 s) : Correct answer      (0.015s)
+   Hidden test set 3 (05 pts / 1 s) : Correct answer      (0.175s)
+   Hidden test set 4 (05 pts / 1 s) : Correct answer      (0.153s)
+
+Total score: 100
