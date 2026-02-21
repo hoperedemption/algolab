@@ -1,6 +1,6 @@
 # Croquet
 
-## Algorithm tags (Codeforces-style)
+## Algorithm tags
 **Delaunay · BFS · Nearest-Neighbor**
 
 ---
