@@ -6,7 +6,7 @@
 
 ### The problem in a nutshell
 
-Let `n = 2^i - 1` and consider the complete binary tree on vertices `{0, ..., n-1}` with children `ch(u) = {2u+1, 2u+2}` when in range. Each vertex `u` has a deadline `t_u ∈ Z_{>= 1}`. We must choose a permutation `pi` of all vertices such that:
+Let `n = 2^i - 1` and consider the complete binary tree on vertices `{0, ..., n-1}` with children `ch(u) = {2u+1, 2u+2}` when in range. Each vertex `u` has a deadline `t_u ∈ Z_{>= 1}`. We must choose a permutation (an orderning in simple terms) `pi` of all vertices such that:
 
 1. (**Precedence**) if `v ∈ ch(u)` then `v` appears before `u` in `pi` (children before parent).
 2. (**Deadlines**) the vertex killed at time `t ∈ {0, ..., n-1}` must satisfy `t < time{pi(t)}`.
