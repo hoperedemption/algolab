@@ -33,7 +33,7 @@ with `(D, E)` representing the water line (and perpendicularity enforced implici
 
 ---
 
-## Algorithm logic (high level)
+## Algorithm logic
 
 The solution is a sequence of LPs:
 
