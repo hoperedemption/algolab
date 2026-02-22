@@ -6,7 +6,7 @@
 
 ---
 
-## Problem in a nutshell (math, no story)
+## Problem in a nutshell
 
 Given `n` points `p_i = (x_i, y_i)` inside an axis-aligned rectangle `[l, r] x [b, t]`. Each point represents a disk whose radius grows as
 
