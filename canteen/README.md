@@ -40,7 +40,7 @@ To get lexicographic optimization (serve as many as possible first, then maximiz
 * storing overnight costs `e_i` per unit,
 * selling to day `i` gives revenue `p_i`, implemented as **negative cost**, but shifted to keep all edge weights nonnegative (your `20 - p_i` trick).
 
-Then you run **min-cost max-flow** using **successive shortest augmenting paths**: repeatedly find the cheapest way to push one more unit from source to sink until no more flow can be sent. The resulting max flow equals the maximum number of students that can be served; among those, the min-cost solution corresponds to maximum profit. Finally you convert back from shifted costs to real profit with `20*flow - find_flow_cost(G)`.
+Then you run **min-cost max-flow** using **successive shortest augmenting paths**: repeatedly find the cheapest way to push one more unit from source to sink until no more flow can be sent. The resulting max flow equals the maximum number of students that can be served; among those, the min-cost solution corresponds to maximum profit. Finally convert back from shifted costs to real profit with `20*flow - find_flow_cost(G)`.
 
 ---
 
