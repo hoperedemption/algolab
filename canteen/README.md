@@ -6,7 +6,7 @@
 
 ---
 
-## Problem in a nutshell (math, no story)
+## Problem in a nutshell
 
 We have `n` time steps (days). On each day `i`:
 
@@ -30,7 +30,7 @@ and inventory conservation:
 
 ---
 
-## Algorithm logic (high level)
+## Algorithm logic
 
 You encode the whole planning horizon as a **flow network** with one node per day. Sending 1 unit of flow corresponds to producing one menu and routing it forward in time (possibly through storage edges) until it is finally “consumed” by selling it on some day.
 
