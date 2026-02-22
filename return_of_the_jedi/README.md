@@ -1,4 +1,4 @@
-# Return of the Jedi - Second-Best Minimum Spanning Tree (via edge exchange on an MST / Prim tree)
+# Return of the Jedi - Second-Best Minimum Spanning Tree
 
 ### Algorithm tag 
 
