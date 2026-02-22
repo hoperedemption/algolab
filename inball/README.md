@@ -6,7 +6,7 @@
 
 ---
 
-## Problem in a nutshell (math, no story)
+## Problem in a nutshell
 
 Given `n` halfspaces in `R^d`,
 
@@ -16,7 +16,7 @@ find the maximum radius `r >= 0` such that there exists a center `x in R^d` with
 
 ---
 
-## Algorithm idea (high level)
+## Algorithm idea
 
 The largest inscribed ball can be expressed as a linear program by enforcing that the center stays at distance at least `r` from every bounding hyperplane. For each inequality `a_i^T x <= b_i`, the condition “ball of radius `r` fits” is
 
