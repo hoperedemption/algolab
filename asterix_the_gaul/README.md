@@ -24,7 +24,7 @@ If no such `g` exists, output **“Panoramix captured”**.
 
 ---
 
-## Algorithm idea (high level)
+## Algorithm idea
 
 Feasibility is monotone in `g`: larger `g` never reduces any achievable distance. Therefore, binary search can be used on `g`. For a fixed `g`, checking feasibility is still exponential in `n`, but `n <= 30` is small enough for **meet-in-the-middle**:
 
