@@ -61,17 +61,6 @@ The `s_start` optimization avoids repeatedly scanning carriers that are too weak
 
 ---
 
-# Why both solutions are correct (and how they relate)
-
-### Shared greedy principle
-
-Both methods rely on the same structural fact: after sorting, it is always safe to match the *heaviest remaining items* as early as possible to the *strongest available carriers*, because:
-
-* if a heavy item cannot be carried by a given carrier, it cannot be carried by any weaker carrier either;
-* delaying a heavy item never helps, since it only reduces future options.
-
----
-
 ## Complexity
 
 ### Solution 1
