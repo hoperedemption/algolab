@@ -78,3 +78,13 @@ The `s_start` optimization avoids repeatedly scanning carriers that are too weak
 * Each item removed once with `upper_bound`: `m` operations at `O(log m)`
 
 **Total:** `O(n log n + m log m)` time, `O(m)` memory for the multiset.
+
+## Points
+
+```text
+Testing solution >>>>
+   Test set 1 (30 pts / 1.500 s) : Correct answer      (0.005s)
+   Test set 2 (30 pts / 1.500 s) : Correct answer      (0.309s)
+   Test set 3 (40 pts / 1.500 s) : Correct answer      (0.551s)
+
+Total score: 100
