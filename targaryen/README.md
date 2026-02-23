@@ -37,8 +37,6 @@ This is a maximum subgraph selection under per-vertex degree bounds `<= 1` (regu
    * Plaza capacity 2 is handled by “splitting” each plaza `v` into two capacity-1 slots via a duplicate node `v'` (your `n+v`) and connecting edges so that at most two incident roads can be chosen overall.
    * The promise “no road has both ends plazas” makes this slot-splitting clean (you never need 2-by-2 interactions on the same edge). 
 3. **Run Edmonds’ maximum cardinality matching** on `F`. The resulting matching size equals the maximum number of roads you can make safe.
-
-
 ---
 
 ## Complexity
